@@ -12,11 +12,10 @@ public class GroupService {
     private static SubjectService subjectService = new SubjectService();
 
     static {
-        String[] strings = {"Thanos", "Captain America", "Iron Man", "Black widow"};
-        for (String name : strings) {
+        for (String name : new String[]{"Thanos", "Captain America", "Iron Man", "Black widow"}) {
             Group group = new Group();
             group.setName(name);
-            group.addStudents(studentService.getStudents(1));
+            group.addStudents(studentService.getStudents(2));
             group.addSubjects(subjectService.getSubjects());
             groups.add(group);
         }
@@ -25,4 +24,5 @@ public class GroupService {
     public List<Group> getGroups() {
         return groups;
     }
+
 }

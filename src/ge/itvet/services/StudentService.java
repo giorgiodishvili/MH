@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class StudentService extends Student {
+public class StudentService {
     private String[] names = {"Soso", "Joseph", "Vaxo", "Anz2"};
     private String[] surnames = {"Kakabadze", "Jugashvili", "Vaxtangishvili", "Labadze"};
 
@@ -23,6 +23,4 @@ public class StudentService extends Student {
         }
         return list;
     }
-
-
 }

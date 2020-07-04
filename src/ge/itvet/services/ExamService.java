@@ -9,7 +9,7 @@ public class ExamService {
     private static GroupService groupService = new GroupService();
     private static SubjectService subjectService = new SubjectService();
 
-    {
+    static {
         Random random = new Random();
         List<Subject> subjects = subjectService.getSubjects();
         groupService.getGroups().stream()
