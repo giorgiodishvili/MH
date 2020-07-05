@@ -4,6 +4,8 @@ import ge.itvet.services.ExamService;
 import ge.itvet.services.StatisticService;
 import ge.itvet.services.SubjectService;
 import ge.itvet.university.Student;
+import ge.itvet.university.Subject;
+
 //bevri vewvale tu cota vgoneb bevri rame davamugame tenkiu :DD
 public class Main {
     public static void main(String[] args) {
@@ -15,10 +17,10 @@ public class Main {
 //        System.out.println(statisticService.sortGroupByType());
         //  System.out.println(statisticService.sortBySubject(subjectService.getSubjects().get(0)));
         System.out.println(statisticService.sortStudents5());
-        Student s = new Student();
-        s.addPoint(subjectService.getSubjects().get(0), 1234);
+//        Student s = new Student();
+//        s.addPoint(subjectService.getSubjects().get(0), 1234);
 
-        System.out.println(s.getPointsByType(subjectService.getSubjects().get(0).getType())); //gavteste getpoints by type tu mushaonda
+        System.out.println(statisticService.sortByType(Subject.Type.TECHNICAL)); //gavteste getpoints by type tu mushaonda
 //        System.out.println(statisticService.sortStudentsBySubject(subjectService.getSubjects().get(0)));
 
      /*

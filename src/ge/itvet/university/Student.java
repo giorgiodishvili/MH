@@ -8,10 +8,12 @@ public class Student extends Person {
     private Map<Subject, Integer> points = new HashMap<>();
     private Map<Subject.Type, Integer> typepoint = new HashMap<>();
     Subject subject1;
+    Subject.Type subjectType;
 
     public void addPoint(Subject subject, int point) {
         subject1 = subject;
         typepoint.put(subject.getType(), point);
+        subjectType=subject.getType();
         points.put(subject, point);
     }
 
@@ -29,6 +31,10 @@ public class Student extends Person {
 
     public int getPointsByType(Subject.Type type) {
         return typepoint.get(type);
+    }
+
+    public Subject.Type getSubjectType() {
+        return subjectType;
     }
 
     public Integer pointSum() {

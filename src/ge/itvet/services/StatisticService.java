@@ -33,16 +33,22 @@ public class StatisticService {
         return typeIntegerMap;
     }
 
-    public Map<Subject.Type, Integer> sortGroupByType() {
-        long size = service.getGroups().stream()
-                .flatMap(group -> group.getStudents().stream()).count();
-        Map<Subject.Type, Integer> typeIntegerMap = sumOfPointsGroupBySubjectType();
-        typeIntegerMap.replaceAll((s, v) -> v / (int) size);
-        return typeIntegerMap.entrySet()
-                .stream()
-                .sorted((Map.Entry.<Subject.Type, Integer>comparingByValue().reversed()))
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+    public List<Student> sortStudents5() {
+        List<Student> collect = service.getGroups().stream()
+                .flatMap(group -> group.getStudents().stream())
+                .collect(Collectors.toList());
+        Collections.sort(collect, new SortService.SortStudents());
+        return collect;
+    }
 
+    public List<Student> sortStudentsBySubject(Subject subject) {
+        List<Student> collect = service.getGroups().stream()
+                .flatMap(group -> group.getStudents().stream())
+                .filter(student -> student.getSubject().equals(subject)) // momkali da ver gavfiltre :/ mgoni ideaswori iyo
+
+                .collect(Collectors.toList());
+        Collections.sort(collect, new SortService.SortStudentsBySubject(subject));
+        return collect;
     }
 
     public List<Group> sortBySubject(final Subject subject) {
@@ -61,33 +67,32 @@ public class StatisticService {
 
     }
 
-    public List<Student> sortStudents5() {
+    public Map<Subject.Type, Integer> sortGroupByType() {
+        long size = service.getGroups().stream()
+                .flatMap(group -> group.getStudents().stream()).count();
+        Map<Subject.Type, Integer> typeIntegerMap = sumOfPointsGroupBySubjectType();
+        typeIntegerMap.replaceAll((s, v) -> v / (int) size);
+        return typeIntegerMap.entrySet()
+                .stream()
+                .sorted((Map.Entry.<Subject.Type, Integer>comparingByValue().reversed()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+
+    }
+    //amaze kargad vegar vichaliche imas imdeni dro shevaxarje(gamocdebistvisac vemzadebi sorry :D) (xval vcdi kide)
+    public List<Student> sortByType(Subject.Type type) {
+
         List<Student> collect = service.getGroups().stream()
                 .flatMap(group -> group.getStudents().stream())
                 .collect(Collectors.toList());
-        Collections.sort(collect, new SortService.SortStudents());
-        return collect;
-    }
 
-    public List<Student> sortStudentsBySubject(Subject subject) {
-        List<Student> collect = service.getGroups().stream()
-                .flatMap(group -> group.getStudents().stream())
-                .filter(student -> student.getSubject().equals(subject)) // momkali da ver gavfiltre :/ mgoni ideaswori iyo
 
+        List<Student> collect1 = collect.stream()
+                .filter(entry -> entry.getSubjectType().equals(type))
                 .collect(Collectors.toList());
-        Collections.sort(collect, new SortService.SortStudentsBySubject(subject));
-        return collect;
+
+        collect1.sort(new SortService.SortStudentsByType(type));
+        return collect1;
+
     }
-//amaze kargad vegar vichaliche imas imdeni dro shevaxarje(gamocdebistvisac vemzadebi sorry :D) (xval vcdi kide)
-//    public List<Student> sortByType(Type type) {
-//        List<Student> collect = service.getGroups().stream()
-//                .flatMap(group -> group.getSubjects().stream())
-//                .map(group -> group.getType().equals(type))
-//                .filter(student -> student.get))
-//
-//                .collect(Collectors.toList());
-//        Collections.sort(collect, new SortService.SortStudentsBySubject(subject));
-//        return collect;
-//    }
 }
 
