@@ -12,16 +12,15 @@ public class Main {
         new ExamService();
         StatisticService statisticService = new StatisticService();
         SubjectService subjectService = new SubjectService();
-        //   Subject subject = new Subject(Subject.Type.TECHNICAL,"Java");
+      Subject subject = new Subject(Subject.Type.TECHNICAL,"Java");
 //        System.out.println("typePointsMap = " + statisticService.sumOfPointsGroupBySubjectType());
 //        System.out.println(statisticService.sortGroupByType());
-        //  System.out.println(statisticService.sortBySubject(subjectService.getSubjects().get(0)));
-        System.out.println(statisticService.sortStudents5());
-//        Student s = new Student();
-//        s.addPoint(subjectService.getSubjects().get(0), 1234);
+//        System.out.println(statisticService.sortBySubject(subjectService.getSubjects().get(0)));
+//        System.out.println(statisticService.sortStudents5());
 
-        System.out.println(statisticService.sortByType(Subject.Type.TECHNICAL)); //gavteste getpoints by type tu mushaonda
-//        System.out.println(statisticService.sortStudentsBySubject(subjectService.getSubjects().get(0)));
+
+        System.out.println(statisticService.sortStudentsByType(Subject.Type.TECHNICAL));
+        System.out.println(statisticService.sortStudentsBySubject(subject));
 
      /*
      X 1.ქულების გენერცია თითოეული გრუპის სტუდენტზე

@@ -7,8 +7,8 @@ import java.util.Objects;
 public class Student extends Person {
     private Map<Subject, Integer> points = new HashMap<>();
     private Map<Subject.Type, Integer> typepoint = new HashMap<>();
-    Subject subject1;
-    Subject.Type subjectType;
+   private Subject subject1;
+   private Subject.Type subjectType;
 
     public void addPoint(Subject subject, int point) {
         subject1 = subject;
@@ -58,8 +58,8 @@ public class Student extends Person {
     public String toString() {
         return "Student{" +
                 "points=" + pointSum() +
-                ", name='" + name + '\'' +
-                '}';
+                ", name='" + name + '\'' + ", subject = "+ getSubject() + ", subjectPoint = "+ getPointsBySubject(getSubject())+" , subjectType =   " + getSubjectType() +", typepoin = "+getPointsByType(subjectType)
+                +'}' +"\n";
     }
 
     @Override

@@ -24,7 +24,7 @@ public interface SortService {
 
         @Override
         public int compare(Student o1, Student o2) {
-            return o2.getPointsBySubject(subject) - o2.getPointsBySubject(subject);
+            return o2.getPointsBySubject(subject) - o1.getPointsBySubject(subject);
         }
 
     }

@@ -79,7 +79,7 @@ public class StatisticService {
 
     }
     //amaze kargad vegar vichaliche imas imdeni dro shevaxarje(gamocdebistvisac vemzadebi sorry :D) (xval vcdi kide)
-    public List<Student> sortByType(Subject.Type type) {
+    public List<Student> sortStudentsByType(Subject.Type type) {
 
         List<Student> collect = service.getGroups().stream()
                 .flatMap(group -> group.getStudents().stream())
