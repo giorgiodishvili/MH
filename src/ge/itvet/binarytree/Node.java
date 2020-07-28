@@ -1,4 +1,4 @@
-package ge.george.binarytree;
+package ge.itvet.binarytree;
 
 public class Node<V> {
     private V value;

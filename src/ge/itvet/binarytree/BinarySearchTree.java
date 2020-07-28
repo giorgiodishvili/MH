@@ -1,9 +1,10 @@
-package ge.george.binarytree;
+package ge.itvet.binarytree;
+
 
 import java.util.Optional;
 
 public class BinarySearchTree<V extends Comparable<V>> {
-    private Node<V> root;
+   Node<V> root;
 
     public void insert(V value) {
         Node<V> y = null;

@@ -1,4 +1,4 @@
-package ge.george.binarytree;
+package ge.itvet.binarytree;
 
 import java.util.ArrayList;
 import java.util.Collections;
