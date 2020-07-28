@@ -1,27 +1,25 @@
 package ge.itvet;
 
 import ge.itvet.services.ExamService;
+import ge.itvet.services.GroupService;
 import ge.itvet.services.StatisticService;
-import ge.itvet.services.SubjectService;
-import ge.itvet.university.Student;
 import ge.itvet.university.Subject;
 
 //bevri vewvale tu cota vgoneb bevri rame davamugame tenkiu :DD
 public class Main {
     public static void main(String[] args) {
-        new ExamService();
+      new ExamService();
         StatisticService statisticService = new StatisticService();
-        SubjectService subjectService = new SubjectService();
-      Subject subject = new Subject(Subject.Type.TECHNICAL,"Java");
+//      Subject subject = new Subject(Subject.Type.TECHNICAL,"Java");
 //        System.out.println("typePointsMap = " + statisticService.sumOfPointsGroupBySubjectType());
 //        System.out.println(statisticService.sortGroupByType());
 //        System.out.println(statisticService.sortBySubject(subjectService.getSubjects().get(0)));
 //        System.out.println(statisticService.sortStudents5());
-
-
-        System.out.println(statisticService.sortStudentsByType(Subject.Type.TECHNICAL));
-        System.out.println(statisticService.sortStudentsBySubject(subject));
-
+        System.out.println();
+        System.out.println(new GroupService().getGroups().get(0).getStudents());
+//        System.out.println(statisticService.sortStudentsByType(Subject.Type.TECHNICAL));
+//        System.out.println(statisticService.sortStudentsBySubject(subject));
+//        System.out.println(new GroupService().getGroups().get(0).getStudents());
      /*
      X 1.ქულების გენერცია თითოეული გრუპის სტუდენტზე
      X 2.საგნის ტიპის მიხედვით ქულების ჯამის დაბრუნება

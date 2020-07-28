@@ -4,10 +4,8 @@ import ge.itvet.university.Group;
 import ge.itvet.university.Student;
 import ge.itvet.university.Subject;
 
-import java.lang.reflect.Type;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class StatisticService {
     private static final GroupService service = new GroupService();
@@ -41,15 +39,6 @@ public class StatisticService {
         return collect;
     }
 
-    public List<Student> sortStudentsBySubject(Subject subject) {
-        List<Student> collect = service.getGroups().stream()
-                .flatMap(group -> group.getStudents().stream())
-                .filter(student -> student.getSubject().equals(subject)) // momkali da ver gavfiltre :/ mgoni ideaswori iyo
-
-                .collect(Collectors.toList());
-        Collections.sort(collect, new SortService.SortStudentsBySubject(subject));
-        return collect;
-    }
 
     public List<Group> sortBySubject(final Subject subject) {
         Map<Group, List<Student>> collect = service.getGroups().stream()
@@ -82,16 +71,15 @@ public class StatisticService {
     public List<Student> sortStudentsByType(Subject.Type type) {
 
         List<Student> collect = service.getGroups().stream()
-                .flatMap(group -> group.getStudents().stream())
-                .collect(Collectors.toList());
-
-
-        List<Student> collect1 = collect.stream()
+                .flatMap(s -> s.getStudents().stream())
                 .filter(entry -> entry.getSubjectType().equals(type))
+
                 .collect(Collectors.toList());
 
-        collect1.sort(new SortService.SortStudentsByType(type));
-        return collect1;
+
+
+        collect.sort(new SortService.SortStudentsByType(type));
+        return collect;
 
     }
 }

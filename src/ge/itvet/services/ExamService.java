@@ -11,7 +11,7 @@ public class ExamService {
 
     static {
         Random random = new Random();
-        List<Subject> subjects = subjectService.getSubjects();
+        final List<Subject> subjects = subjectService.getSubjects();
         groupService.getGroups().stream()
                 .flatMap(group -> group.getStudents().stream())
                 .forEach(student -> subjects.forEach(subject -> student.addPoint(subject, 21 + random.nextInt(80))));

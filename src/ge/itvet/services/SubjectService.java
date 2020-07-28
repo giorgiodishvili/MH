@@ -1,3 +1,4 @@
+
 package ge.itvet.services;
 
 import ge.itvet.university.Subject;
@@ -14,8 +15,6 @@ public class SubjectService {
 //        subjects.add(new Subject(Subject.Type.TECHNICAL, "HTML/CSS"));
 //
 //        subjects.add(new Subject(Subject.Type.HUMANITARIAN, "History"));
-//        subjects.add(new Subject(Subject.Type.TECHNICAL, "Calculus"));
-//        subjects.add(new Subject(Subject.Type.TECHNICAL, "SQL"));
     }
 
     public List<Subject> getSubjects() {

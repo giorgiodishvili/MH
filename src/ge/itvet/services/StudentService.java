@@ -1,9 +1,7 @@
 package ge.itvet.services;
 
 import ge.itvet.university.Student;
-import ge.itvet.university.Subject;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -17,7 +15,7 @@ public class StudentService {
         List<Student> list = new ArrayList<>();
         for (int i = 0; i < amount; i++) {
             Student student = new Student();
-            student.setName(names[random.nextInt(names.length)]);
+
             student.setSurname(surnames[random.nextInt(surnames.length)]);
             list.add(student);
         }

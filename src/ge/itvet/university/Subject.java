@@ -7,7 +7,6 @@ public class Subject {
     private final Type type;
     private String name;
     private List<Lecturer> lecturers;
-
     public Subject(Type type) {
         this.type = type;
     }
@@ -40,8 +39,8 @@ public class Subject {
     @Override
     public String toString() {
         return "Subject{" +
-                "name='" + name + '\'' +
-                ", lecturers=" + lecturers +
+                "Type='" + getType() + '\'' +
+                ", name=" + name +
                 '}';
     }
 
@@ -50,8 +49,8 @@ public class Subject {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Subject subject = (Subject) o;
-        return type == subject.type &&
-                name.equals(subject.name);
+        return type == subject.type ;
+//                && name.equals(subject.name);
     }
 
 
